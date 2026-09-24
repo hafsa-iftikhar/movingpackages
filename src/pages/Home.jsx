@@ -91,9 +91,7 @@ useEffect(() => {
       </span>
 
       <h1>
-        CORRUGATED <br />
-        CARTONS & 
-        PACKAGING
+        CORRUGATED CARTONS & PACKAGING
       </h1>
       <p>
         Leading manufacturing factory producing custom heavy-duty cartons, shipping boxes, and protective industrial packaging built for all commercial needs.

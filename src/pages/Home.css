@@ -312,7 +312,7 @@
 /* Paragraph Description */
 .hero-mobile-content p {
   width: 100%;
-  max-width: 440px;
+  max-width: 640px;
   color: rgba(255, 255, 255, 0.85);
   font-size: clamp(0.85rem, 3.8vw, 0.95rem);
   line-height: 1.55;
@@ -361,52 +361,58 @@
 /* ============================================================
    RESPONSIVE BREAKPOINTS
    ============================================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-mobile {
-    min-height: 75vh;
-    align-items: center; /* Centers content vertically on medium tablet screens */
-  }
-
-  .mobile-bg-text {
-    top: 15%;
-    left: 10px;
-    font-size: 11rem; /* Scaled larger ghost text for tablet width */
-  }
-
+/* ============================================================
+   SPECIFIC FIX FOR MOBILE SCREENS (540px AND BELOW)
+   ============================================================ */
+@media (max-width: 540px) {
   .hero-mobile-content {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box; /* Fixes layout trapping typo */
-    padding: 60px 40px 60px; /* Generous tablet padding */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important; /* Fixes border-border-box typo */
+    padding: 20px 14px 165px !important; /* Tight side padding gives maximum text area */
   }
 
   .hero-mobile-badge {
-    font-size: 0.9rem;
-    padding: 8px 18px;
-    margin-bottom: 18px;
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    margin-bottom: 12px;
   }
 
+  /* Main Heading: Scaled & expanded for 540px mobile */
   .hero-mobile-content h1 {
-    width: 100%;
-    max-width: 720px; /* Expands heading width for tablet displays */
-    font-size: 3.8rem;
-    line-height: 1.05;
-    margin-bottom: 20px;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 2.55rem !important; /* Clean, fixed size for mobile */
+    line-height: 1.1 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 14px !important;
   }
 
+  /* Paragraph Description */
   .hero-mobile-content p {
-    max-width: 600px; /* Gives paragraph text more room to breathe */
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-
-  .hero-mobile-btn {
-    padding: 16px 36px;
-    font-size: 0.9rem;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
   }
 }
 
+/* EXTRA SMALL SCREENS (iPhone SE, smaller Androids - 375px and below) */
+@media (max-width: 375px) {
+  .mobile-bg-text {
+    font-size: 4rem;
+  }
+
+  .hero-mobile-content h1 {
+    font-size: 1.95rem !important;
+  }
+
+  .hero-mobile-content p {
+    font-size: 0.82rem !important;
+  }
+}
 /*******************SECTION: 02 *************************************/
 /* ================= SECTION ================= */
 
