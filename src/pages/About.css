@@ -186,8 +186,8 @@ font-family: 'Tw Cen MT', sans-serif;
 /* 3. Small Devices / Tablets & Large Mobile (max-width: 768px) */
 @media screen and (max-width: 768px) {
   .abt-hero {
-    min-height: 85vh;
-    padding: 220px 20px 50px 20px;
+    min-height: 90vh;
+    padding: 180px 20px 50px 20px;
   }
 
   .abt-hero-bg {
@@ -587,7 +587,7 @@ font-family: 'Tw Cen MT', sans-serif;
   font-size: clamp(2.2rem, 2.8vw, 3.2rem);
   font-weight: 900;
   letter-spacing: -0.9px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin-bottom: 55px;
   text-align: center;
   color: var(--color-black, #111111)
@@ -743,6 +743,10 @@ font-family: 'Tw Cen MT', sans-serif;
     margin-bottom: 14px;
   }
 
+  .abt-diff-header h2{
+    font-size: 1.8rem;
+  }
+
   .abt-diff-content h3 {
     font-size: 1.15rem;
     margin-bottom: 8px;
@@ -794,6 +798,7 @@ font-family: 'Tw Cen MT', sans-serif;
   font-weight: 900;
   letter-spacing: -0.1px;
   color: var(--color-white, #ffffff);
+  text-transform: uppercase;
 }
 
 /* 3-Column Card Grid Layout */
@@ -1200,13 +1205,13 @@ font-family: 'Tw Cen MT', sans-serif;
 }
 
 /* 4. Mobile Phones (max-width: 480px) */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 540px) {
   .abt-creative {
     padding: 45px 16px;
   }
 
   .abt-creative-img-box {
-    height: 320px;
+    height: 540px;
   }
 
   .abt-creative-lead {
@@ -1260,7 +1265,6 @@ font-family: 'Tw Cen MT', sans-serif;
 
 /* Bold Industrial Plant Title */
 .abt-cta-heading {
-  font-family: 'Montserrat', 'Inter', sans-serif;
   font-size: clamp(2.2rem, 2.6vw, 3.8rem);
   font-weight: 900;
   color: var(--color-black, #111111);
@@ -1348,7 +1352,7 @@ font-family: 'Tw Cen MT', sans-serif;
   }
 
   .abt-cta-heading {
-    font-size: 1.85rem;
+    font-size: 1.62rem;
     letter-spacing: -0.5px;
   }
 
