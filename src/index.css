@@ -1,0 +1,7 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: #111111; /* Slightly softer black for better aesthetics */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}

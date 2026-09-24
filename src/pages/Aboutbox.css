@@ -1,0 +1,743 @@
+/* Base resets for container */
+.box-page-root {
+  width: 100%;
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+/* ==========================================
+   SECTION 1: HERO HEADER (DARK & BLURRED BG)
+   ========================================== */
+.box-hero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 24px;
+  overflow: hidden;
+  color: #ffffff;
+  text-align: center;
+  background-color: #0c0d0e;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Background Image Layer (Clean sharpness with subtle blur) */
+.box-hero-bg {
+  position: absolute;
+  top: -30px;
+  left: -20px;
+  right: -20px;
+  bottom: -30px;
+  background-image: url("/images/aboutboxbg.webp");
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.9);
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.box-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 50% 45%,
+      rgba(12, 13, 14, 0.25) 0%,
+      rgba(12, 13, 14, 0.6) 100%
+    ),
+    linear-gradient(180deg, rgba(12, 13, 14, 0.3) 0%, rgba(12, 13, 14, 0.75) 100%);
+  z-index: 2;
+}
+
+/* Elegant Warm Glow Accent */
+.box-hero-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 123, 0, 0.15) 0%, rgba(255, 123, 0, 0) 70%);
+  z-index: 2;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.box-hero-glow-1 {
+  top: 0%;
+  left: 20%;
+  animation: pulseGlow 9s ease-in-out infinite alternate;
+}
+
+.box-hero-glow-2 {
+  bottom: 0%;
+  right: 20%;
+  animation: pulseGlow 11s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95) translate(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2) translate(15px, -15px);
+    opacity: 0.85;
+  }
+}
+
+/* ==========================================
+   CONTENT & TYPOGRAPHY
+   ========================================== */
+.box-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Sleek Modern Badge */
+.box-seq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(150, 149, 149, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #f4a300;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 170, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.box-seq-badge:hover {
+  border-color: rgba(255, 170, 0, 0.6);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.box-seq-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffaa00;
+  box-shadow: 0 0 8px #ffaa00;
+  animation: badgeDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes badgeDotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+
+/* Clean, Bold Heading with Modern Lettering */
+.box-hero-title {
+  font-size: clamp(2.1rem, 4.8vw, 3.5rem);
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.028em;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.75), 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+/* TABLET & SMALL LAPTOPS (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .box-hero {
+    min-height: 520px;
+    padding: 80px 20px;
+  }
+
+  .box-hero-title {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+  }
+
+  .box-hero-glow {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+/* TABLET PORTRAIT & LARGE PHONES (max-width: 768px) */
+@media (max-width: 768px) {
+  .box-hero {
+    min-height: 540px;
+    padding: 70px 18px;
+  }
+
+  .box-hero-content {
+    gap: 16px;
+  }
+
+  .box-hero-title {
+    font-size: 2.6rem !important;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  .box-seq-badge {
+    font-size: 0.76rem;
+    padding: 6px 14px;
+    gap: 7px;
+  }
+
+  .box-hero-glow {
+    width: 260px;
+    height: 260px;
+    filter: blur(40px);
+  }
+
+  .box-hero-glow-1 {
+    top: -10%;
+    left: 5%;
+  }
+
+  .box-hero-glow-2 {
+    bottom: -10%;
+    right: 5%;
+  }
+}
+
+/* MEDIUM/LARGE PHONES & FOLDABLES (max-width: 540px) */
+@media (max-width: 540px) {
+  .box-hero {
+    min-height: 550px;
+    padding: 60px 16px;
+  }
+
+  .box-hero-content {
+    gap: 15px;
+  }
+
+  .box-hero-title {
+    font-size: 1.8rem !important;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+  }
+
+  .box-seq-badge {
+    font-size: 0.72rem;
+    padding: 6px 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .box-seq-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .box-hero-glow {
+    width: 220px;
+    height: 220px;
+    filter: blur(45px);
+  }
+
+  .box-hero-glow-1 {
+    top: -5%;
+    left: 0%;
+  }
+
+  .box-hero-glow-2 {
+    bottom: -5%;
+    right: 0%;
+  }
+}
+
+/* MOBILE DEVICES (max-width: 480px) */
+@media (max-width: 480px) {
+  .box-hero {
+    min-height: 380px;
+    padding: 50px 16px;
+  }
+
+  .box-hero-bg {
+    /* Prevents edge clipping during mobile browser scroll shifts */
+    top: -10px;
+    bottom: -10px;
+    filter: blur(1.5px) brightness(0.85);
+  }
+
+  .box-hero-content {
+    gap: 14px;
+  }
+
+  .box-hero-title {
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  .box-seq-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    letter-spacing: 0.07em;
+  }
+
+  .box-seq-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .box-hero-glow {
+    width: 180px;
+    height: 180px;
+    opacity: 0.6;
+  }
+}
+
+/* ==========================================
+   SECTION 2: MAIN CONTENT (WHITE BACKGROUND)
+   ========================================== */
+.box-main {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 70px 24px 100px;
+}
+
+.box-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.box-section {
+  margin-bottom: 70px;
+}
+
+.box-section-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 32px;
+  border-bottom: 3px solid #ffb700;
+  padding-bottom: 14px;
+  display: inline-block;
+}
+
+.box-subsection-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 36px 0 16px;
+}
+
+/* Grid Layouts */
+.box-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.box-text-block p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #27272a;
+  margin-bottom: 16px;
+}
+
+.box-paragraph {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #27272a;
+  margin-bottom: 20px;
+}
+
+/* Yellow Highlighted Badge */
+/* Media Cards for Diagrams */
+.box-media-card {
+  background: #ffffff;
+  border: 2px solid #111111;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column; /* Stacks image on top and caption below */
+}
+
+.box-media-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover; /* Completely fills the box container without white space */
+  object-position: center; /* Centers the image content */
+  display: block;
+  padding: 0; /* Removes padding so image touches borders seamlessly */
+}
+
+.box-caption {
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #000000;
+  background: #ffb700;
+  text-align: center;
+  border-top: 2px solid #111111; /* Clean divider line above the caption */
+}
+
+@media (max-width: 1024px) {
+  .box-main {
+    padding: 60px 20px 80px;
+  }
+
+  .box-grid-2col {
+    gap: 30px;
+  }
+
+  .box-media-card img {
+    height: 240px;
+  }
+}
+
+/* TABLETS (max-width: 768px) */
+@media (max-width: 768px) {
+  .box-main {
+    padding: 50px 18px 60px;
+  }
+
+  .box-section {
+    margin-bottom: 50px;
+  }
+
+  .box-section-title {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+  }
+
+  .box-subsection-title {
+    font-size: 1.2rem;
+    margin: 28px 0 14px;
+  }
+
+  /* Collapse 2-column grid to 1-column on mobile/tablet */
+  .box-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .box-media-card img {
+    height: 340px;
+  }
+}
+
+/* LARGE PHONES & FOLDABLES (max-width: 540px) */
+@media (max-width: 540px) {
+  .box-main {
+    padding: 40px 16px 50px;
+  }
+
+  .box-section {
+    margin-bottom: 40px;
+  }
+
+  .box-section-title {
+    font-size: 1.5rem;
+    border-bottom-width: 2px;
+  }
+
+  .box-subsection-title {
+    font-size: 1.1rem;
+    margin: 22px 0 12px;
+  }
+
+  .box-text-block p,
+  .box-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .box-media-card {
+    border-radius: 10px;
+  }
+
+  .box-media-card img {
+    height: 250px;
+  }
+
+  .box-caption {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+}
+
+/* SMALL PHONES (max-width: 380px) */
+@media (max-width: 380px) {
+  .box-section-title {
+    font-size: 1.35rem;
+  }
+
+  .box-media-card img {
+    height: 180px;
+  }
+
+  .box-caption {
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================
+   SECTION 3 : BOX STYLES CATALOG (IMAGE LEFT, POINTS RIGHT)
+   ========================================== */
+.box-styles-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+/* Horizontal Card: Image Left + Content Right */
+.box-style-row-card {
+  background: #ffffff;
+  border: 1.5px solid #e4e4e7;
+  border-left: 6px solid #000000;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.box-style-row-card:hover {
+  border-left-color: #ffb700;
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Image container on left */
+.box-style-img-wrapper {
+  flex-shrink: 0;
+  width: 180px;
+  height: 160px;
+  background-color: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Removed padding so image touches borders directly */
+  overflow: hidden; /* Clips image corners to match border-radius */
+}
+
+.box-style-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fits container completely without white space */
+  object-position: center; /* Keeps main product image centered */
+  display: block;
+}
+
+/* Content Area on right */
+.box-style-content {
+  flex: 1;
+}
+
+.box-style-content h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.box-style-content h3::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 100%;
+  min-height: 18px;
+  background-color: #ffb700;
+  border-radius: 2px;
+}
+
+/* Bullet Points List */
+.box-style-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-style-bullets li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3f3f46;
+  margin-bottom: 6px;
+}
+
+.box-style-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+/* Yellow Custom Bullet Point */
+.box-style-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: #ffb700;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .box-style-img-wrapper {
+    width: 150px;
+    height: 140px;
+  }
+
+  .box-style-content h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* TABLETS PORTRAIT (max-width: 768px) */
+@media (max-width: 768px) {
+  .box-styles-catalog {
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  /* Keep horizontal side-by-side layout, reduce padding */
+  .box-style-row-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .box-style-row-card:hover {
+    transform: none; /* Disable hover translation on touch screens */
+  }
+
+  /* Fixed compact image box */
+  .box-style-img-wrapper {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 6px;
+  }
+
+  .box-style-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .box-style-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .box-style-bullets li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-left: 14px;
+    margin-bottom: 4px;
+  }
+
+  .box-style-bullets li::before {
+    font-size: 1.1rem;
+  }
+}
+
+/* LARGE PHONES & FOLDABLES (max-width: 540px) */
+/* LARGE PHONES & FOLDABLES (max-width: 540px) */
+@media (max-width: 540px) {
+  /* Stack card contents vertically */
+  .box-style-row-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 16px;
+    border-left-width: 5px;
+    border-radius: 10px;
+  }
+
+  /* Perfect Square Image Container */
+  .box-style-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Forces a perfect 1:1 square ratio */
+    height: auto; /* Overrides fixed px heights */
+    max-height: 260px; /* Keeps the square bounded on larger phones */
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+
+  .box-style-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Text Block Content Below Image */
+  .box-style-content {
+    width: 100%;
+  }
+
+  .box-style-content h3 {
+    font-size: 1.05rem;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .box-style-bullets li {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    padding-left: 16px;
+    margin-bottom: 5px;
+  }
+
+  .box-style-bullets li::before {
+    font-size: 1.15rem;
+  }
+}
+
+/* SMALL PHONES (max-width: 380px) */
+@media (max-width: 380px) {
+  .box-style-row-card {
+    padding: 12px;
+  }
+
+  .box-style-img-wrapper {
+    height: 140px;
+  }
+
+  .box-style-content h3 {
+    font-size: 1rem;
+  }
+
+  .box-style-bullets li {
+    font-size: 0.84rem;
+  }
+}

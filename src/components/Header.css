@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgb(255, 255, 255);
+    color: rgb(6, 6, 6);
+    transition: all 0.35s ease;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid #111; /* black line below header */
+}
+
+/* when scroll */
+.header-small {
+    padding: 12px 60px;
+    background: rgba(189, 188, 188, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* logo */
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    font-family: 'Tw Cen MT', sans-serif;
+}
+
+/* logo smaller when scroll */
+.header-small .logo {
+    font-size: 22px;
+}
+
+/* nav */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+/* links */
+.nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    font-family: 'Tw Cen MT', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    padding: 4px 0; /* space for the underline */
+}
+
+/* minimal hover: top and bottom yellow lines */
+.nav a::before,
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px; /* thin line */
+    background: #ffd93d; /* light yellow */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+/* top line */
+.nav a::before {
+    top: 0;
+    transform-origin: left;
+}
+
+/* bottom line */
+.nav a::after {
+    bottom: 0;
+    transform-origin: right;
+}
+
+/* hover effect */
+.nav a:hover::before,
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+/***********************************************************/
+/* HAMBURGER */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:space-between;
+    width:24px;
+    height:14px;
+    cursor:pointer;
+}
+
+.line{
+    width:100%;
+    height:2px;
+    background:rgb(0, 0, 0);
+    transition:0.3s;
+}
+
+/* hamburger animation */
+.hamburger.active .line:nth-child(1){
+    transform:rotate(45deg) translate(4px,5px);
+}
+
+.hamburger.active .line:nth-child(2){
+    opacity:0;
+}
+
+.hamburger.active .line:nth-child(3){
+    transform:rotate(-45deg) translate(4px,-5px);
+}
+
+
+/* MOBILE SIDEBAR */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -260px; /* hidden initially */
+    width: 260px;
+    height: 100vh;
+    background: #111; /* dark background */
+    padding: 80px 20px 20px 20px;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    z-index: 2000;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+    border-right: 1px solid #222;
+    border-radius: 0 8px 8px 0;
+    font-family:'Tw Cen MT', sans-serif;
+}
+
+/* Close button at top */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth spring-like timing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 1. Rotation effect when the sidebar opens */
+.mobile-menu.active .animate-close {
+    transform: rotate(180deg);
+}
+
+/* 2. Hover effect: slight grow and glow */
+.close-btn:hover {
+    color: #eb0202;
+    transform: scale(1.1) rotate(90deg);
+}
+
+.close-btn:active {
+    transform: scale(0.9);
+    transition: 0.1s;
+}
+
+@keyframes softPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.mobile-menu.active .close-btn svg {
+    animation: none; /* Keep it steady or add pulse if desired */
+}
+
+/* Sidebar links */
+.mobile-menu a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.nav a, .mobile-menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+
+/* For Mobile Menu Links specifically */
+.mobile-menu a {
+    padding: 12px 15px; 
+    margin-bottom: 10px;
+    border-bottom: 1px solid #222; 
+}
+
+.mobile-menu a svg {
+    color: #cccccc; 
+}
+
+.mobile-menu a:hover {
+    background: #222;
+}
+
+/* Sidebar open */
+.mobile-menu.active {
+    left: 0;
+}
+
+/* Overlay behind sidebar */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1500;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .nav{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+
+    .header{
+        padding:18px 30px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .header{
+        padding:16px 20px;
+    }
+
+}
