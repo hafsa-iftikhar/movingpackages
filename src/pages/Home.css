@@ -369,19 +369,19 @@
    ============================================================ */
 
 /* 3. SMALL MOBILE (max-width: 575px) */
-@media (max-width: 575px) {
+@media (max-width: 540px) {
   .hero-mobile {
     height: 85vh;
   }
 
   .mobile-bg-text {
-    top: 10%;
-    left: -10px;
+    top: 12%;
+    left: 5px;
     font-size: 9rem; /* EDIT: Ghost text size on small mobile */
   }
 
   .hero-mobile-content {
-    padding: 30px 20px 80px;
+    padding: 30px 20px 120px;
   }
 
   .hero-mobile-badge {

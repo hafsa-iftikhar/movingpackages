@@ -462,7 +462,7 @@
    MOBILE
 ========================================== */
 
-@media (max-width: 576px) {
+@media (max-width: 540px) {
   .mp-left-brand-column {
     padding: 0 20px;
   }
