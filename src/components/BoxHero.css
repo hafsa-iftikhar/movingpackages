@@ -325,3 +325,134 @@
   }
 }
 
+@media (max-width: 768px) {
+  /* Lock 2-column row layout */
+  .mp-split-layout {
+    display: grid !important;
+    grid-template-columns: 50% 50% !important;
+  }
+
+  .mp-left-brand-column {
+    padding-left: 4% !important;
+    padding-right: 2% !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  /* 1. Heading, Text & Button Adjustments */
+  .mp-luxury-badge {
+    margin-bottom: 10px !important;
+    padding: 3px 8px !important;
+  }
+
+  .mp-badge-string {
+    font-size: 0.8rem !important;
+  }
+
+  .mp-company-title {
+    font-size: 1.9rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 10px !important;
+    padding-left: 4px;
+  }
+
+  .mp-editorial-subtext {
+    font-size: 1.0rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 14px !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-left: 4px;
+  }
+
+  .mp-cta-button-container {
+    margin-bottom: 0 !important;
+  }
+
+  .mp-editorial-action-btn {
+    padding: 12px 14px !important;
+    font-size: 0.68rem !important;
+    gap: 8px !important;
+  }
+
+  .mp-btn-arrow-icon {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* 2. Box & Falling Items Size Adjustments */
+  .mp-right-stage-column {
+    padding-left: 0 !important;
+    padding-right: 2% !important;
+    height: 100% !important;
+  }
+
+  .mp-viewport-box-anchor {
+    max-width: 100% !important;
+    padding-bottom: 2vh !important;
+  }
+
+  .mp-box-graphic-wrapper {
+    width: 320px !important;
+    height: 280px !important;
+  }
+
+  .mp-item-frame {
+    width: 120px !important;
+    height: 120px !important;
+    margin-left: -40px !important;
+    margin-top: -40px !important;
+  }
+
+  .mp-box-chute-clipper {
+    top: 25% !important;
+    clip-path: polygon(-50% -100%, 150% -100%, 150% 65%, -50% 65%) !important;
+  }
+}
+
+/* Extra scaling for small screens */
+@media (max-width: 540px) {
+  .mp-luxury-badge {
+    display: none !important;
+  }
+  
+  .mp-split-layout {
+    grid-template-columns: 52% 48% !important;
+  }
+
+  .mp-left-brand-column {
+    padding-left: 3% !important;
+    padding-right: 1% !important;
+  }
+
+  .mp-company-title {
+    font-size: 2.0rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mp-editorial-subtext {
+    font-size: 0.85rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .mp-editorial-action-btn {
+    padding: 9px 12px !important;
+    font-size: 0.6rem !important;
+  }
+
+  .mp-box-graphic-wrapper {
+    width: 250px !important;
+    height: 255px !important;
+  }
+
+  .mp-item-frame {
+    width: 90px !important;
+    height: 80px !important;
+    margin-left: -40px !important;
+    margin-top: -80px !important;
+  }
+}
+
+
