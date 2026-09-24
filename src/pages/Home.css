@@ -358,61 +358,7 @@
   }
 }
 
-/* ============================================================
-   RESPONSIVE BREAKPOINTS
-   ============================================================ */
-/* ============================================================
-   SPECIFIC FIX FOR MOBILE SCREENS (540px AND BELOW)
-   ============================================================ */
-@media (max-width: 540px) {
-  .hero-mobile-content {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important; /* Fixes border-border-box typo */
-    padding: 20px 14px 175px !important; /* Tight side padding gives maximum text area */
-  }
 
-  .hero-mobile-badge {
-    font-size: 0.7rem;
-    padding: 5px 12px;
-    margin-bottom: 12px;
-  }
-
-  /* Main Heading: Scaled & expanded for 540px mobile */
-  .hero-mobile-content h1 {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    font-size: 2.5rem !important; /* Clean, fixed size for mobile */
-    line-height: 1.1 !important;
-    letter-spacing: -0.5px !important;
-    margin-bottom: 14px !important;
-  }
-
-  /* Paragraph Description */
-  .hero-mobile-content p {
-    width: 100% !important;
-    max-width: 100% !important;
-    font-size: 0.88rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 20px !important;
-  }
-}
-
-/* EXTRA SMALL SCREENS (iPhone SE, smaller Androids - 375px and below) */
-@media (max-width: 375px) {
-  .mobile-bg-text {
-    font-size: 4rem;
-  }
-
-  .hero-mobile-content h1 {
-    font-size: 1.95rem !important;
-  }
-
-  .hero-mobile-content p {
-    font-size: 0.82rem !important;
-  }
-}
 /*******************SECTION: 02 *************************************/
 /* ================= SECTION ================= */
 
