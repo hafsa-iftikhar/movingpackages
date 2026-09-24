@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from 'react';
-// Components - Matching your folder structure
+
+// Components
+import ScrollToTop from "./components/ScrollToTop"; 
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -12,6 +14,7 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop /> {/* <--- PLACED HERE OUTSIDE <Routes> */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
