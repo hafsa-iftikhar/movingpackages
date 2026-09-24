@@ -92,7 +92,7 @@ useEffect(() => {
 
       <h1>
         CORRUGATED <br />
-        CARTONS & <br />
+        CARTONS & 
         PACKAGING
       </h1>
       <p>

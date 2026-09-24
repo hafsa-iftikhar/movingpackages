@@ -188,15 +188,17 @@
 /************************SECTION: 01 FOR SMALL TO MIDDLE SCREEEN ****************************/
 .hero-mobile {
   position: relative;
-  height: 90vh;
+  /* Use svh (Small Viewport Height) to prevent mobile browser bar jumps */
+  min-height: 85svh; 
   width: 100%;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  background: #111; /* Fallback dark background while image slides in */
+  background: #111111;
+  box-sizing: border-box;
 }
 
-/* Background image wrapper sliding in from downwards */
+/* Background image sliding in from bottom */
 .hero-mobile-bg {
   position: absolute;
   inset: 0;
@@ -205,8 +207,6 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  
-  /* Initial state before sliding */
   transform: translateY(100%);
   opacity: 0;
   animation: slideBgFromBottom 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -223,18 +223,18 @@
   }
 }
 
-/* DARK + BLUR OVERLAY */
+/* Dark Overlay with subtle blur */
 .hero-mobile-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.92) 0%,
-    rgba(0,0,0,0.70) 50%,
-    rgba(0,0,0,0.30) 100%
+    rgba(17, 17, 17, 0.95) 0%,
+    rgba(17, 17, 17, 0.65) 50%,
+    rgba(17, 17, 17, 0.3) 100%
   );
   backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(3px);
   z-index: 1;
   opacity: 0;
   animation: fadeInOverlay 1s ease 0.6s forwards;
@@ -246,20 +246,19 @@
   }
 }
 
-/* HUGE GHOST TEXT - BEHIND CONTENT (z-index: 1) & TRULY BIG */
+/* DYNAMIC GHOST BACKGROUND TEXT - Scaled via viewport units (vw) */
 .mobile-bg-text {
   position: absolute;
-  top: 5%; /* Positioned slightly higher */
-  left: -5px;
-  font-size: 12rem; /* Hardcoded fixed size */
+  top: 10%;
+  left: -2px;
+  font-size: 7.5rem; /* Fixed base font size */
   font-weight: 900;
-  line-height: 0.75;
-  color: rgba(255, 255, 255, 0.06);
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.05);
   letter-spacing: -2px;
   pointer-events: none;
-  z-index: 1; /* Behind content layer */
+  z-index: 1;
   text-transform: uppercase;
-  font-family: 'Tw Cen MT', sans-serif;
   white-space: nowrap;
   user-select: none;
   opacity: 0;
@@ -267,92 +266,87 @@
   animation: fadeInUpText 0.8s ease 1s forwards;
 }
 
-/* CONTENT CONTAINER - Shifted upward with top/bottom padding */
+/* Content Container */
 .hero-mobile-content {
   position: relative;
-  z-index: 3; /* Above overlay and ghost text */
+  z-index: 3;
   width: 100%;
-  padding: 40px 25px 80px; /* Increased bottom padding pushes content upward */
+  padding: 30px 20px 125px;
+  box-sizing: border-border-box;
 }
 
-/* BADGE */
+/* Badge */
 .hero-mobile-badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 204, 0, 0.95);
-  color: #111;
-  padding: 8px 18px;
+  background: #ffcc00;
+  color: #111111;
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-  /* Text Reveal Animation */
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  font-family: 'Tw Cen MT', sans-serif;
   opacity: 0;
   transform: translateY(25px);
   animation: fadeInUpText 0.8s ease 1.2s forwards;
 }
 
-/* MAIN HEADING */
+/* Main Heading */
 .hero-mobile-content h1 {
-  font-size: clamp(2.5rem, 9vw, 4.5rem);
-  line-height: 1.1;
+  display: block;
+  font-size: clamp(2.1rem, 8vw, 3.2rem);
+  line-height: 1.08;
   font-weight: 800;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-  /* Text Reveal Animation */
+  color: #ffffff;
+  text-transform: capitalize;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.8px; /* Slightly tighter spacing allows text to stretch edge-to-edge */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUpText 0.8s ease 1.4s forwards;
 }
 
-/* DESCRIPTION */
+/* Paragraph Description */
 .hero-mobile-content p {
-  max-width: 500px;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 25px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-  /* Text Reveal Animation */
+  width: 100%;
+  max-width: 440px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.85rem, 3.8vw, 0.95rem);
+  line-height: 1.55;
+  margin: 0 0 24px 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUpText 0.8s ease 1.6s forwards;
 }
 
-/* BUTTON */
+/* Call to Action Button */
 .hero-mobile-btn {
+  display: inline-block;
   border: none;
   background: #ffcc00;
-  color: #111;
-  padding: 14px 32px;
-  border-radius: 4px;
-  font-weight: 700;
+  color: #111111;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 800;
   cursor: pointer;
-  transition: transform 0.35s ease, background 0.35s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  
-  /* Text Reveal Animation */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUpText 0.8s ease 1.8s forwards;
+  font-family: 'Tw Cen MT', sans-serif;
 }
 
-.hero-mobile-btn:hover {
-  transform: translateY(-3px);
+.hero-mobile-btn:active {
+  transform: scale(0.98);
   background: #e6b800;
 }
 
-/* KEYFRAME FOR STAGGERED TEXT REVEAL */
 @keyframes fadeInUpText {
   0% {
     opacity: 0;
@@ -365,82 +359,51 @@
 }
 
 /* ============================================================
-   RESPONSIVE BREAKPOINTS (FIXED: NO GHOST TEXT OVERRIDES)
+   RESPONSIVE BREAKPOINTS
    ============================================================ */
-
-/* 3. SMALL MOBILE (max-width: 575px) */
-@media (max-width: 540px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .hero-mobile {
-    height: 85vh;
+    min-height: 75vh;
+    align-items: center; /* Centers content vertically on medium tablet screens */
   }
 
   .mobile-bg-text {
-    top: 12%;
-    left: 5px;
-    font-size: 9rem; /* EDIT: Ghost text size on small mobile */
+    top: 15%;
+    left: 10px;
+    font-size: 11rem; /* Scaled larger ghost text for tablet width */
   }
 
   .hero-mobile-content {
-    padding: 30px 20px 120px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Fixes layout trapping typo */
+    padding: 60px 40px 60px; /* Generous tablet padding */
   }
 
   .hero-mobile-badge {
-    font-size: 0.65rem;
-    margin-bottom: 12px;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    margin-bottom: 18px;
   }
 
   .hero-mobile-content h1 {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
-  }
-
-  .hero-mobile-content p {
-    font-size: 0.88rem;
+    width: 100%;
+    max-width: 720px; /* Expands heading width for tablet displays */
+    font-size: 3.8rem;
+    line-height: 1.05;
     margin-bottom: 20px;
   }
 
-  .hero-mobile-btn {
-    padding: 12px 24px;
-    font-size: 0.75rem;
-  }
-}
-
-
-/* 4. EXTRA SMALL MOBILE (max-width: 480px) */
-@media (max-width: 480px) {
-  .hero-mobile {
-    height: 80vh;
-  }
-
-  .mobile-bg-text {
-    top: 1%;
-    left: -12px;
-    font-size: 8rem; /* EDIT: Ghost text size on extra small screens */
-  }
-
-  .hero-mobile-content {
-    padding: 20px 16px 70px;
-  }
-
-  .hero-mobile-badge {
-    font-size: 0.6rem;
-    padding: 5px 12px;
-  }
-
-  .hero-mobile-content h1 {
-    font-size: 2.3rem;
-    line-height: 1.1;
-  }
-
   .hero-mobile-content p {
-    font-size: 0.82rem;
-    line-height: 1.5;
+    max-width: 600px; /* Gives paragraph text more room to breathe */
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
   }
 
   .hero-mobile-btn {
-    width: 100%; /* Makes button full width on very small screens */
-    text-align: center;
-    padding: 14px 20px;
+    padding: 16px 36px;
+    font-size: 0.9rem;
   }
 }
 
