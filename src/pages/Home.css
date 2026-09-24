@@ -75,16 +75,15 @@
 
 /* HEADING - uppercase, elegant, minimal */
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 900;
   margin-bottom: 20px;
-  text-transform: capitalize;
+  text-transform: uppercase;
   opacity: 0;
   transform: translateY(30px);
   transition: all 1s ease 0.4s;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #1a1a1a;
-  letter-spacing: 1px;
+  letter-spacing: 0.1px;
 }
 
 .hero-split.active .hero-content h1 {
@@ -169,22 +168,103 @@
 }
 
 /* RESPONSIVE */
-@media(max-width:900px) {
-  .hero-split {
-    flex-direction: column;
+@media (max-width: 1200px) {
+  /* Fix total width split to 60/40 */
+  .hero-left {
+    width: 60%;
+    padding: 0 6%;
   }
-  .hero-left, .hero-right {
-    width: 100%;
-    text-align: center;
+
+  .hero-right {
+    width: 40%;
   }
-  .floating-box-img {
-    width: 260px;
-    margin: 20px auto 0;
-  }
+
+  /* Ghost background text scaling */
   .bg-text-faded {
-    font-size: 80px;
+    font-size: clamp(6.5rem, 12vw, 9.5rem);
+    top: 2%;
+    left: 2%;
+  }
+
+  .hero-content {
+    max-width: 500px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  /* Right Side Image Scaling */
+  .right-slide-img {
+    width: 95%;
+    max-width: 450px;
+  }
+
+  .box-shadow-accent {
+    width: 180px;
+    height: 28px;
   }
 }
+
+/* 2. TABLETS & SMALL LAPTOPS (max-width: 992px) */
+@media (max-width: 992px) {
+  .hero-split {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column; /* Stack left and right blocks */
+    overflow: hidden;
+  }
+
+  /* Left Block (Yellow Content) */
+  .hero-left {
+    width: 100%;
+    padding: 80px 8% 60px;
+    min-height: 55vh;
+  }
+
+  .bg-text-faded {
+    font-size: clamp(5rem, 15vw, 8rem);
+    letter-spacing: -3px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* Right Block (White Background + Image) */
+  .hero-right {
+    width: 100%;
+    padding: 60px 0;
+    min-height: 45vh;
+  }
+
+  .right-slide-img {
+    width: 75%;
+    max-width: 360px;
+  }
+
+  .box-shadow-accent {
+    width: 160px;
+    height: 25px;
+  }
+}
+
 /************************SECTION: 01 FOR SMALL TO MIDDLE SCREEEN ****************************/
 .hero-mobile {
   position: relative;
@@ -251,8 +331,7 @@
   position: absolute;
   top: 10%;
   left: -2px;
-  font-size: 7.5rem; /* Fixed base font size */
-  font-weight: 900;
+  font-size: clamp(7.5rem, 17vw, 10.5rem);  font-weight: 900;
   line-height: 0.8;
   color: rgba(255, 255, 255, 0.05);
   letter-spacing: -2px;
@@ -271,7 +350,7 @@
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: 30px 20px 125px;
+  padding: 30px 20px 155px;
   box-sizing: border-border-box;
 }
 
@@ -297,8 +376,7 @@
 /* Main Heading */
 .hero-mobile-content h1 {
   display: block;
-  font-size: clamp(2.1rem, 8vw, 3.2rem);
-  line-height: 1.08;
+  font-size: clamp(2.1rem, 6.5vw, 3.5rem);  line-height: 1.08;
   font-weight: 800;
   color: #ffffff;
   text-transform: capitalize;
@@ -612,12 +690,13 @@
 }
 /* HEADING */
 .minimal-left h2{
-  font-size:3rem;
+  font-size:2.5rem;
   line-height:1.12;
   color:#111;
   font-weight:800;
   margin-bottom:20px;
   max-width:850px;
+  text-transform: uppercase;
   width:100%;
   opacity:0;
   transform:
@@ -773,106 +852,144 @@
 
 }
 /* ================= RESPONSIVE ================= */
-@media (min-width:769px) and (max-width:992px){
-
-  .minimal-section{
-    height:70vh;
-    padding:0 5%;
-    gap:30px;
+@media (max-width: 992px) {
+  .minimal-section {
+    height: auto;
+    min-height: auto;
+    padding: 70px 6%;
+    /* Stacks right side (image) on top, left side (text) on bottom */
+    flex-direction: column-reverse; 
+    justify-content: center;
+    gap: 40px;
   }
 
-  .minimal-left{
-    width:55%;
-  }
-
-  .minimal-right{
-    width:45%;
-  }
-
-  .minimal-left h2{
-    font-size:2.3rem;
-    line-height:1.15;
-  }
-
-  .minimal-left p{
-    font-size:.95rem;
-    line-height:1.8;
-  }
-
-  .image-card{
-    width:380px;
-    height:450px;
-  }
-
-}
-@media (max-width:768px){
-  .minimal-section{
-    height:auto;
-    padding: 5px 25px;
-    gap: 20px;
-    flex-direction:column;
-    text-align:center;
-  }
-  .minimal-left{
-    width:100%;
-    order:2;
-  }
-
-  .minimal-right{
+  /* Right side container width scaling */
+  .minimal-right {
     width: 100%;
-    order:1;
   }
 
-  .minimal-tag{
-    font-size:.7rem;
-    padding:8px 16px;
+  .image-card {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 4 / 5; /* Responsive aspect ratio replacing 520px x 620px */
   }
 
-  .minimal-left h2{
-    font-size:1.8rem;
-    line-height:1.2;
-    margin-bottom:15px;
-    text-transform: capitalize;
+  /* Left side container width scaling */
+  .minimal-left {
+    width: 100%;
   }
 
-  .minimal-left p{
-    font-size:.95rem;
-    line-height:1.8;
-    margin-bottom:20px;
+  .minimal-left h2 {
+    font-size: clamp(2.1rem, 5vw, 2.7rem);
+    max-width: 100%;
   }
-  .image-card{
-    width:380px;
-    height:380px;
+
+  .minimal-left p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    line-height: 1.7;
   }
 }
 
-@media (max-width:480px){
-
-  .minimal-section{
-    padding:40px 20px;
-    gap:25px;
+@media (max-width: 768px) {
+  .minimal-section {
+    height: auto;
+    min-height: auto;
+    padding: 5px 5%;
+    flex-direction: column-reverse; /* Keeps image top, text bottom */
+    justify-content: center;
+    gap: 36px;
   }
 
-  .minimal-tag{
-    font-size:.65rem;
-    padding:7px 14px;
+  /* Right Side (Image at top) */
+  .minimal-right {
+    width: 100%;
   }
 
-  .minimal-left h2{
-    font-size:1.7rem;
-    line-height:1.25;
+  .image-card {
+    width: 100%;
+    max-width: 440px; /* Perfectly sized for 768px portrait viewport */
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
   }
 
-  .minimal-left p{
-    font-size:.9rem;
-    line-height:1.7;
+  /* Left Side (Text content at bottom) */
+  .minimal-left {
+    width: 100%;
   }
 
-  .image-card{
-    width:320px;
-    height:360px;
+  .minimal-tag {
+    font-size: 0.8rem;
+    padding: 7px 18px;
+    margin-bottom: 18px;
   }
 
+  .minimal-left h2 {
+    font-size: 2.3rem; /* Tailored heading size for 768px tablet */
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+
+  .minimal-left p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+
+  .minimal-btn {
+    padding: 12px 28px;
+    font-size: 0.85rem;
+  }
+}
+
+/* 2. MOBILE PHONES (max-width: 540px) */
+@media (max-width: 540px) {
+  .minimal-section {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .image-card {
+    max-width: 100%;
+    aspect-ratio: 1 / 1; /* Square ratio keeps image fitting on mobile */
+  }
+
+  .minimal-tag {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+    margin-bottom: 14px;
+  }
+
+  .minimal-left h2 {
+    font-size: 1.72rem;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .minimal-left p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+}
+
+/* 3. EXTRA SMALL MOBILES (max-width: 375px) */
+@media (max-width: 375px) {
+  .minimal-section {
+    padding: 30px 14px;
+  }
+
+  .minimal-left h2 {
+    font-size: 1.65rem;
+  }
+
+  .minimal-left p {
+    font-size: 0.82rem;
+  }
 }
 /* =======================SECTION: 04 ================================== */
 .products-section {
@@ -911,11 +1028,12 @@
 }
 
 .products-section .section-title {
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: #111111;
+  text-transform: uppercase;
 }
 
 /* ================= GRID DESIGN ================= */
@@ -1062,33 +1180,161 @@
 }
 
 /* ================= RESPONSIVE ADAPTATIONS ================= */
-@media (max-width: 1100px) {
+/* 1. SMALL DESKTOPS & LAPTOPS (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .products-section {
+    padding: 80px 5%;
+  }
+
+  .products-section .section-title {
+    font-size: 2.8rem;
+  }
+
   .products-section .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 320px;
+    gap: 24px;
   }
-  .products-section .product-btn {
-    opacity: 1;
-    transform: scale(1) translate(0, 0);
-  }
-  .products-section .product-tag {
-    opacity: 1;
-    transform: translateY(0);
+
+  .products-section .product-title {
+    font-size: 1.5rem;
   }
 }
 
-@media (max-width: 768px) {
+/* 2. TABLETS & SMALL LAPTOPS (max-width: 992px) */
+@media (max-width: 992px) {
   .products-section {
-    padding: 80px 24px;
+    padding: 80px 5%;
   }
+
+  .products-section .section-header {
+    margin-bottom: 45px;
+  }
+
   .products-section .section-title {
-    font-size: 2.3rem;
+    font-size: 2.4rem;
   }
+
+  /* Switch grid from 3 columns to 2 columns */
   .products-section .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 300px;
+    gap: 20px;
+  }
+
+  .products-section .product-overlay {
+    padding: 28px;
+  }
+
+  .products-section .product-title {
+    font-size: 1.5rem;
   }
 }
+
+/* 3. IPAD PORTRAIT & MEDIUM TABLETS (max-width: 768px) */
+@media (max-width: 768px) {
+  .products-section {
+    padding: 60px 4%;
+  }
+
+  .products-section .section-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .products-section .section-title {
+    font-size: 2.1rem;
+  }
+
+  .products-section .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 280px;
+    gap: 16px;
+  }
+
+  /* Make glassmorphic action button and tags visible on touch screens */
+  .products-section .product-tag {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .products-section .product-btn {
+    opacity: 1 !important;
+    transform: scale(0.9) translate(0, 0) !important;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+  }
+  .products-section .product-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* 4. MOBILE PHONES (max-width: 540px) */
+@media (max-width: 540px) {
+  .products-section {
+    padding: 60px 20px;
+  }
+
+  .products-section .section-header {
+    margin-bottom: 35px;
+  }
+
+  .products-section .section-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+  }
+
+  .products-section .section-title {
+    font-size: 1.9rem;
+    line-height: 1.15;
+  }
+
+  /* Single full-width product card layout */
+  .products-section .products-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 320px; /* Comfortable vertical card ratio for mobile scrolling */
+    gap: 20px;
+  }
+
+  .products-section .product-card {
+    border-radius: 16px;
+  }
+
+  .products-section .product-overlay {
+    padding: 24px;
+  }
+
+  .products-section .product-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* 5. EXTRA SMALL MOBILES (max-width: 375px) */
+@media (max-width: 375px) {
+  .products-section {
+    padding: 50px 14px;
+  }
+
+  .products-section .section-title {
+    font-size: 1.65rem;
+  }
+
+  .products-section .products-grid {
+    grid-auto-rows: 280px;
+  }
+
+  .products-section .product-overlay {
+    padding: 20px;
+  }
+
+  .products-section .product-title {
+    font-size: 1.25rem;
+  }
+}
+
 /* ========================================================= */
 /* ================= SECTION: 05 ======================= */
 .luxury-statement-banner {
@@ -1118,7 +1364,6 @@
 /* ================= TYPOGRAPHY & SEPARATORS SECTION: 06================= */
 
 .luxury-statement-banner .luxury-word {
-font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.85);
@@ -1203,7 +1448,6 @@ font-family: 'Inter', sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr; /* Perfect 50/50 split matching your reference image */
   background: #f4f3ef; /* Premium matte off-white editorial background canvas */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow: hidden;
   margin: 20px 0;
   opacity: 0;
@@ -1285,7 +1529,7 @@ font-family: 'Inter', sans-serif;
 
 /* The striking primary title header block */
 .showcase-right-content .showcase-title {
-  font-size: clamp(2rem, 3.8vw, 3.8rem);
+  font-size: 2.8rem;
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.03em;
@@ -1309,7 +1553,7 @@ font-family: 'Inter', sans-serif;
   color: #ffffff;
   background: black; /* Matching red button profile */
   border: none;
-  border-radius: 50px; /* Forms the iconic pill design */
+  border-radius: 5px; /* Forms the iconic pill design */
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.4s ease,
@@ -1324,32 +1568,28 @@ font-family: 'Inter', sans-serif;
 
 
 /* ================= STAGE-BY-STAGE MEDIA RESPONSIVENESS ================= */
-
-@media (max-width: 1024px) {
-  .showcase-right-content {
-    padding: 60px 6%;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Converts split layout to a cohesive stacked view on mobile devices */
+@media (max-width: 992px) {
   .showcase-split-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Switch from 2-column split to stacked layout */
+    min-height: auto;
+    margin: 10px 0;
   }
-  
+
+  /* Left Block (Media / Product Container) */
   .showcase-left-media {
-    height: 480px; /* Locks height on vertical stack */
-    padding: 20px;
+    padding: 60px 20px;
+    min-height: 400px;
+    overflow: hidden;
   }
 
   .showcase-left-media .side-text {
-    font-size: 5rem; /* Scales text down so it fits smaller tablet windows perfectly */
+    font-size: clamp(3.5rem, 12vw, 6rem);
   }
 
+  /* Right Block (Story / Content) */
   .showcase-right-content {
-    padding: 60px 32px;
+    padding: 60px 8%; /* Balanced horizontal padding */
     justify-content: center;
-    text-align: center;
   }
 
   .showcase-right-content .content-wrapper {
@@ -1357,6 +1597,122 @@ font-family: 'Inter', sans-serif;
   }
 
   .showcase-right-content .showcase-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom: 20px;
+  }
+
+  .showcase-right-content .showcase-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+}
+
+/* 2. STANDARD TABLETS & IPAD PORTRAIT (max-width: 768px) */
+@media (max-width: 768px) {
+  .showcase-left-media {
+    padding: 50px 16px;
+    min-height: 350px;
+  }
+
+  /* Re-orient side vertical text for narrow displays to prevent line clipping */
+  .showcase-left-media .left-text {
+    left: 2%;
+  }
+
+  .showcase-left-media .right-text {
+    right: 2%;
+  }
+
+  .showcase-left-media .product-image-container {
+    width: 65%;
+    max-width: 260px;
+  }
+
+  .showcase-right-content {
+    padding: 48px 6%;
+  }
+
+  .showcase-right-content .showcase-title {
+    font-size: 2.2rem;
+    line-height: 1.05;
+  }
+
+  .showcase-right-content .showcase-paragraph {
+    font-size: 0.95rem;
+  }
+
+  .showcase-right-content .showcase-pill-btn {
+    padding: 14px 36px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 3. MOBILE PHONES (max-width: 540px) */
+@media (max-width: 540px) {
+  .showcase-left-media {
+    padding: 50px 16px;
+    min-height: 350px;
+  }
+
+  /* Re-orient side vertical text for narrow displays to prevent line clipping */
+  .showcase-left-media .left-text {
+    left: 4%;
+  }
+
+  .showcase-left-media .right-text {
+    right: 4%;
+  }
+
+  .showcase-left-media .product-image-container {
+    width: 65%;
+    max-width: 280px;
+  }
+
+
+  .showcase-right-content {
+    padding: 40px 20px;
+  }
+
+  .showcase-right-content .showcase-title {
+    font-size: 1.85rem;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .showcase-right-content .showcase-paragraph {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  .showcase-right-content .showcase-pill-btn {
+    width: 100%; /* Clean full-width action button on mobile */
+    text-align: center;
+    padding: 14px 24px;
+    font-size: 0.88rem;
+  }
+}
+
+/* 4. EXTRA SMALL MOBILES (max-width: 375px) */
+@media (max-width: 375px) {
+  .showcase-left-media {
+    min-height: 260px;
+  }
+
+  .showcase-left-media .product-image-container {
+    max-width: 180px;
+  }
+
+  .showcase-right-content {
+    padding: 32px 14px;
+  }
+
+  .showcase-right-content .showcase-title {
+    font-size: 1.65rem;
+  }
+
+  .showcase-right-content .showcase-paragraph {
+    font-size: 0.82rem;
   }
 }
